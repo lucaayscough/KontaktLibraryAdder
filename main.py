@@ -7,9 +7,9 @@ for dir in os.listdir(lib_dir):
         lib_files = os.listdir(lib_dir + "/" + dir)
         for lib_file in lib_files:
             if lib_file.find(".nicnt") != -1:
-                filename = lib_dir + "/" + lib_file
-                library_name = filename[filename.rfind("/") + 1 : filename.find(".")]
-
+                filename = lib_dir + dir + "/" + lib_file
+                library_name = dir
+                
                 contents = open(filename, "r", encoding="iso-8859-1").read()
                 contents = contents[contents.find("<?xml") : contents.find("</ProductHints>") + len("</ProductHints>")]
 
